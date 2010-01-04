@@ -26,3 +26,17 @@ ignore "DomainKey-Signature:"
 ignore "DKIM-Signature:"
 hdr_order Date From To Cc
 
+# Pretty Colors
+color status white blue
+color index green  default ~N  # new
+color index red default ~D  # deleted
+color index brightmagenta default ~T  # tagged
+color index brightyellow default ~F  # flagged
+color header green default "^Subject:"
+color header yellow default "^Date:"
+color header yellow default "^To:"
+color header yellow default "^Cc:"
+color header yellow default "^Bcc:"
+color header yellow default "^From:"
+color header red default "^X-.*:"
+
