@@ -26,3 +26,7 @@ if has("gui_running")
 endif
 filetype plugin indent on
 map <leader>t :FuzzyFinderTextMate<CR>
+map <up> <nop>
+map <down> <nop>
+map <left> <nop>
+map <right> <nop>
