@@ -11,6 +11,8 @@ set laststatus=2
 set enc=utf-8
 set novisualbell
 set nocompatible
+set incsearch
+set hlsearch
 if has("gui_running")
   syntax on
   set lcs=tab:»·,trail:·,precedes:»,extends:«,eol:¶
