@@ -19,8 +19,8 @@ if has("gui_running")
   "set transp=8
   set lines=35
   set columns=95
-  set guifont=Bitstream_Vera_Sans_Mono:h10
-  set guioptions+=T
+  "set guifont=Bitstream_Vera_Sans_Mono:h10
+  set guioptions-=T
   set guioptions+=m
   set list
   set nu
@@ -32,3 +32,7 @@ map <up> <nop>
 map <down> <nop>
 map <left> <nop>
 map <right> <nop>
+" ack.vim
+" surround
+" pathogen
+" vividchalk
