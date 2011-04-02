@@ -24,7 +24,10 @@ if has("gui_running")
   set guioptions+=m
   set list
   set nu
-  colorscheme desert
+  "set background=light
+  set background=dark
+  colorscheme solarized
+  "colorscheme desert
 endif
 filetype plugin indent on
 map <leader>t :FuzzyFinderTextMate<CR>
