@@ -38,3 +38,4 @@ imap  <silent> <F5> <Esc> mmgg=G'm
 " surround
 " pathogen
 " vividchalk
+" http://ethanschoonover.com/solarized
