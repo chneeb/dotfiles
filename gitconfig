@@ -1,0 +1,11 @@
+[user]
+	name = Christian Neeb
+  email = chneeb@gmail.com
+
+[alias]
+  st = status
+  co = checkout
+[color]
+	diff = auto
+	status = auto
+	branch = auto
