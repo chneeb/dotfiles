@@ -1,7 +1,8 @@
 [user]
 	name = Christian Neeb
   email = chneeb@gmail.com
-
+[github]
+  user = chneeb
 [alias]
   st = status
   co = checkout
