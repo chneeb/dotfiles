@@ -31,6 +31,9 @@ if has("gui_running")
 endif
 filetype plugin indent on
 map <leader>t :FuzzyFinderTextMate<CR>
+noremap <leader>o <Esc>:CommandT<CR>
+noremap <leader>O <Esc>:CommandTFlush<CR>
+noremap <leader>m <Esc>:CommandTBuffer<CR>
 map <up> <nop>
 map <down> <nop>
 map <left> <nop>
@@ -41,11 +44,12 @@ imap  <silent> <F5> <Esc> mmgg=G'm
 " pathogen bundles
 call pathogen#infect()
 call pathogen#helptags()
-" call pathogen#runtime_append_all_bundles()
 
 "" Things to try:
 " ack.vim
 " surround
 " pathogen
 " vividchalk
+" CommandT
+" git://github.com/majutsushi/tagbar.git
 " http://ethanschoonover.com/solarized
