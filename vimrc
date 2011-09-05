@@ -37,6 +37,13 @@ map <left> <nop>
 map <right> <nop>
 map   <silent> <F5> mmgg=G'm
 imap  <silent> <F5> <Esc> mmgg=G'm
+
+" pathogen bundles
+call pathogen#infect()
+call pathogen#helptags()
+" call pathogen#runtime_append_all_bundles()
+
+"" Things to try:
 " ack.vim
 " surround
 " pathogen
