@@ -13,6 +13,11 @@ set novisualbell
 set nocompatible
 set incsearch
 set hlsearch
+
+" pathogen bundles
+call pathogen#infect()
+call pathogen#helptags()
+
 if has("gui_running")
   syntax on
   set lcs=tab:»·,trail:·,precedes:»,extends:«,eol:¶
@@ -26,10 +31,16 @@ if has("gui_running")
   set nu
   "set background=light
   set background=dark
+  let g:solarized_termtrans=1
+  let g:solarized_termcolors=256
+  let g:solarized_contrast="high"
+  let g:solarized_visibility="high"
   colorscheme solarized
   "colorscheme desert
 endif
+
 filetype plugin indent on
+
 map <leader>t :FuzzyFinderTextMate<CR>
 noremap <leader>o <Esc>:CommandT<CR>
 noremap <leader>O <Esc>:CommandTFlush<CR>
@@ -40,10 +51,6 @@ map <left> <nop>
 map <right> <nop>
 map   <silent> <F5> mmgg=G'm
 imap  <silent> <F5> <Esc> mmgg=G'm
-
-" pathogen bundles
-call pathogen#infect()
-call pathogen#helptags()
 
 "" Things to try:
 " ack.vim
