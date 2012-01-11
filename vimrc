@@ -35,8 +35,8 @@ if has("gui_running")
   let g:solarized_termcolors=256
   let g:solarized_contrast="high"
   let g:solarized_visibility="high"
-  colorscheme solarized
-  "colorscheme desert
+  "colorscheme solarized
+  colorscheme desert
 endif
 
 filetype plugin indent on
@@ -60,3 +60,4 @@ imap  <silent> <F5> <Esc> mmgg=G'm
 " CommandT
 " git://github.com/majutsushi/tagbar.git
 " http://ethanschoonover.com/solarized
+" tabular.vim to align text by separator
