@@ -61,3 +61,5 @@ imap  <silent> <F5> <Esc> mmgg=G'm
 " vividchalk
 " CommandT
 " git://github.com/majutsushi/tagbar.git
+" http://ethanschoonover.com/solarized
+" tabular.vim to align text by separator
