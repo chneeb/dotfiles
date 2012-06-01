@@ -25,18 +25,20 @@ if has("gui_running")
   set lines=35
   set columns=95
   "set guifont=Bitstream_Vera_Sans_Mono:h10
+  "set guifont=Glass_TTY_VT220:h20
+  set guifont=Monaco:h20
   set guioptions-=T
   set guioptions+=m
   set list
   set nu
-  "set background=light
-  set background=dark
+  set background=light
+  "set background=dark
   let g:solarized_termtrans=1
   let g:solarized_termcolors=256
   let g:solarized_contrast="high"
   let g:solarized_visibility="high"
-  colorscheme solarized
-  "colorscheme desert
+  "colorscheme solarized
+  colorscheme desert
 endif
 
 filetype plugin indent on
@@ -59,4 +61,3 @@ imap  <silent> <F5> <Esc> mmgg=G'm
 " vividchalk
 " CommandT
 " git://github.com/majutsushi/tagbar.git
-" http://ethanschoonover.com/solarized
