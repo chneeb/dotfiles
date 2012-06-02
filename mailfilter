@@ -1,0 +1,25 @@
+DEFAULT="$HOME/Maildir/"
+
+TRISANO="$DEFAULT/.Trisano"
+WORK="$DEFAULT/.Work"
+PLAY="$DEFAULT/.Play"
+
+logfile "$HOME/.maildrop.log"
+
+if (/^(To|Cc|Bcc):.*user@work/)
+{
+  to $WORK
+}
+
+if (/^X-Apparently-To:.*trisano-dev/)
+{
+  to $TRISANO
+}
+
+if (/^(To|Cc|Bcc|Delivered-To):(.*user@hot|.*user@gmail)/)
+{
+  to $PLAY
+}
+
+to $DEFAULT
+
