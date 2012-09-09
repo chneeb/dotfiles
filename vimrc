@@ -53,6 +53,7 @@ map <left> <nop>
 map <right> <nop>
 map   <silent> <F5> mmgg=G'm
 imap  <silent> <F5> <Esc> mmgg=G'm
+map <F6> :setlocal spell! spelllang=en_us<CR>
 
 "" Things to try:
 " ack.vim
