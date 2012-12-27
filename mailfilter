@@ -1,14 +1,13 @@
-DEFAULT="$HOME/Maildir/"
-
-SPAM="$DEFAULT/.Spam/"
-GMX="$DEFAULT/.GMX/"
-
-WORK="$DEFAULT/.Work"
-PLAY="$DEFAULT/.Play"
+MAILDIR="$HOME/Mail/GMX"
+INBOX="$MAILDIR/INBOX/"
+SPAM="$MAILDIR/Spam/"
+GMX="$MAILDIR/GMX/"
+WORK="$MAILDIR/Work/"
+PLAY="$MAILDIR/Play/"
 
 logfile "$HOME/.maildrop.log"
 
-xfilter "/opt/local/bin/bogofilter -u -e -p"
+xfilter "/usr/bin/bogofilter -u -e -p"
 if (/^X-Bogosity: Spam, tests=bogofilter/)
 {
   to $SPAM
@@ -29,5 +28,5 @@ if (/^(To|Cc|Bcc|Delivered-To):(.*user@hot|.*user@gmail)/)
   to $PLAY
 }
 
-to $DEFAULT
+to $INBOX
 
