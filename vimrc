@@ -41,6 +41,11 @@ if has("gui_running")
   colorscheme desert
 endif
 
+" 256 color check and setup
+if $TERM == "xterm-256color" || $TERM == "screen-256color" || $COLORTERM == "gnome-terminal"
+  set t_Co=256
+endif
+
 filetype plugin indent on
 
 map <leader>t :FuzzyFinderTextMate<CR>
@@ -59,8 +64,11 @@ map <F6> :setlocal spell! spelllang=en_us<CR>
 " ack.vim
 " surround
 " pathogen
+" http://slinky.imukuppi.org/zenburnpage/
 " vividchalk
 " CommandT
+" Ctrl-P - http://kien.github.com/ctrlp.vim/
 " git://github.com/majutsushi/tagbar.git
 " http://ethanschoonover.com/solarized
 " tabular.vim to align text by separator
+" http://statico.github.com/vim.html
