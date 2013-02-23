@@ -19,6 +19,11 @@ if (/^From:.*mailings@gmx.net/)
   to $GMX
 }
 
+if (/^From:.*noreply@sms-manager.info/)
+{
+  to $GMX
+}
+
 if (/^(To|Cc|Bcc):.*user@work/)
 {
   to $WORK
