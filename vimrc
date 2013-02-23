@@ -15,8 +15,8 @@ set incsearch
 set hlsearch
 
 " pathogen bundles
-call pathogen#infect()
-call pathogen#helptags()
+"call pathogen#infect()
+"call pathogen#helptags()
 
 if has("gui_running")
   syntax on
@@ -26,7 +26,7 @@ if has("gui_running")
   set columns=95
   "set guifont=Bitstream_Vera_Sans_Mono:h10
   "set guifont=Glass_TTY_VT220:h20
-  set guifont=Monaco:h20
+  "set guifont=Monaco:h20
   set guioptions-=T
   set guioptions+=m
   set list

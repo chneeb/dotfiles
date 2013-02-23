@@ -1,0 +1,18 @@
+# Default inbox.
+set spoolfile = "+GMX/INBOX"
+
+# Alternate email addresses.
+alternates chneeb@gmx.de chneeb@gmail.com
+
+# Mailboxes to show in the sidebar.
+source "~/.mutt/gmx.mailboxes"
+
+# Other special folders.
+set mbox      = "+GMX/INBOX"
+set postponed = "+GMX/Drafts"
+set record    = "+GMX/Sent"
+
+# Send mail options.
+set from     = "chneeb@gmx.net"
+set sendmail = "/usr/bin/msmtp -a gmx"
+
