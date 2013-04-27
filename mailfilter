@@ -7,7 +7,7 @@ PLAY="$MAILDIR/Play/"
 
 logfile "$HOME/.maildrop.log"
 
-xfilter "/usr/bin/bogofilter -u -e -p"
+xfilter "/opt/local/bin/bogofilter -u -e -p"
 if (/^X-Bogosity: Spam, tests=bogofilter/)
 {
   to $SPAM
