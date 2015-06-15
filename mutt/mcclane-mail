@@ -1,0 +1,2 @@
+#!/bin/sh
+ssh mcclane /usr/sbin/sendmail -f me@chneeb.com -t chneeb@gmail.com
