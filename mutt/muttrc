@@ -32,8 +32,9 @@ set sendmail_wait = 0    # Don't wait for sendmail
 set spoolfile = "+Gmail/INBOX"
 
 # Account Settings -----------------------------------
-folder-hook Gmail/* source ~/.mutt/gmail.muttrc
-folder-hook GMX/*   source ~/.mutt/gmx.muttrc
+folder-hook Gmail/*      source ~/.mutt/gmail.muttrc
+folder-hook GMX/*        source ~/.mutt/gmx.muttrc
+folder-hook chneeb.com/* source ~/.mutt/chneeb.muttrc
 
 # Sidebar Patch --------------------------------------
 #set sidebar_delim   = '|'

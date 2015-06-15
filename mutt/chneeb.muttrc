@@ -1,0 +1,18 @@
+# Default inbox.
+set spoolfile = "+chneeb.com/INBOX"
+
+# Alternate email addresses.
+alternates chneeb@gmail.com
+
+# Mailboxes to show in the sidebar.
+source "~/.mutt/chneeb.mailboxes"
+
+# Other special folders.
+set mbox      = "+chneeb.com/INBOX"
+set postponed = "+chneeb.com/Drafts"
+set record    = "+chneeb.com/Sent"
+
+# Send mail options.
+set from     = "me@chneeb.com"
+set sendmail = "ssh mcclane /usr/sbin/sendmail -f me@chneeb.com"
+
