@@ -1,0 +1,7 @@
+MAILDIR="$HOME/Mail/chneeb.com"
+INBOX="$MAILDIR/INBOX/"
+
+logfile "$HOME/.chneeb.maildrop.log"
+
+to $INBOX
+

@@ -15,8 +15,8 @@ set incsearch
 set hlsearch
 
 " pathogen bundles
-"call pathogen#infect()
-"call pathogen#helptags()
+call pathogen#infect()
+call pathogen#helptags()
 
 if has("gui_running")
   syntax on
