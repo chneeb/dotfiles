@@ -17,11 +17,12 @@ set from     = "me@chneeb.com"
 set sendmail = "ssh mcclane /usr/sbin/sendmail -f me@chneeb.com"
 
 # GPG settings - http://dev.mutt.org/trac/wiki/MuttGuide/UseGPG
-source "~/.mutt/gpg.rc"
+#source "~/.mutt/gpg.rc"
 
 set pgp_use_gpg_agent=yes
 # specify the uid to use when encrypting/signing
-set pgp_sign_as=AE497E15
+set pgp_sign_as=CBA64736
+#set pgp_sign_as=E1283D81
 # this set the number of seconds to keep in memory the passphrase used to encrypt/sign # the more the less secure it will be
 set pgp_timeout=60 # or 3600
 # it's a regexp used against the GPG output: if it matches some line of the output # then mutt considers the message a good signed one (ignoring the GPG exit code)
@@ -38,22 +39,58 @@ set crypt_replyencrypt=yes
 set crypt_replysignencrypted=yes
 # automatically verify the sign of a message when opened
 set crypt_verify_sig=yes
+# don't ignore subkeys
+set pgp_ignore_subkeys=no
 
-set pgp_decode_command="gpg %?p?--passphrase-fd 0? --no-verbose --batch --output - %f"
-set pgp_verify_command="gpg --no-verbose --batch --output - --verify %s %f"
-set pgp_decrypt_command="gpg --passphrase-fd 0 --no-verbose --batch --output - %f"
-set pgp_sign_command="gpg --no-verbose --batch --output - --passphrase-fd 0 --armor --detach-sign --textmode %?a?-u %a? %f"
-set pgp_clearsign_command="gpg --no-verbose --batch --output - --passphrase-fd 0 --armor --textmode --clearsign %?a?-u %a? %f"
-set pgp_encrypt_only_command="/usr/lib/mutt/pgpewrap gpg --batch --quiet --no-verbose --output - --encrypt --textmode --armor --always-trust --encrypt-to 0xAE497E15 -- -r %r -- %f"
-set pgp_encrypt_sign_command="/usr/lib/mutt/pgpewrap gpg --passphrase-fd 0 --batch --quiet --no-verbose --textmode --output - --encrypt --sign %?a?-u %a? --armor --always-trust --encrypt-to 0xAE497E15 -- -r %r -- %f"
-set pgp_import_command="gpg --no-verbose --import -v %f"
-set pgp_export_command="gpg --no-verbose --export --armor %r"
-set pgp_verify_key_command="gpg --no-verbose --batch --fingerprint --check-sigs %r"
-set pgp_list_pubring_command="gpg --no-verbose --batch --with-colons --list-keys %r" 
-set pgp_list_secring_command="gpg --no-verbose --batch --with-colons --list-secret-keys %r" 
+# decode application/pgp
+set pgp_decode_command="/usr/local/bin/gpg2 %?p?--passphrase-fd 0? --no-verbose --quiet  --batch  --output - %f"
+#set pgp_decode_command="gpg %?p?--passphrase-fd 0? --no-verbose --batch --output - %f"
+# verify a pgp/mime signature
+set pgp_verify_command="/usr/local/bin/gpg2 --no-verbose --quiet  --batch  --output - --verify %s %f"
+#set pgp_verify_command="gpg --no-verbose --batch --output - --verify %s %f"
+# decrypt a pgp/mime attachment
+set pgp_decrypt_command="/usr/local/bin/gpg2   --passphrase-fd 0 --no-verbose --quiet  --batch  --output - %f"
+#set pgp_decrypt_command="gpg --passphrase-fd 0 --no-verbose --batch --output - %f"
+# create a pgp/mime signed attachment
+# set pgp_sign_command="/usr/bin/gpg2-2comp --comment '' --no-verbose --batch  --output - --passphrase-fd 0 --armor --detach-sign --textmode %?a?-u %a? %f"
+set pgp_sign_command="/usr/local/bin/gpg2    --no-verbose --batch --quiet   --output - --passphrase-fd 0 --armor --detach-sign --textmode %?a?-u %a? %f"
+#set pgp_sign_command="gpg --no-verbose --batch --output - --passphrase-fd 0 --armor --detach-sign --textmode %?a?-u %a? %f"
+# create a application/pgp signed (old-style) message
+# set pgp_clearsign_command="/usr/bin/gpg2-2comp --comment ''  --no-verbose --batch  --output - --passphrase-fd 0 --armor --textmode --clearsign %?a?-u %a? %f"
+set pgp_clearsign_command="/usr/local/bin/gpg2   --no-verbose --batch --quiet   --output - --passphrase-fd 0 --armor --textmode --clearsign %?a?-u %a? %f"
+#set pgp_clearsign_command="gpg --no-verbose --batch --output - --passphrase-fd 0 --armor --textmode --clearsign %?a?-u %a? %f"
+# create a pgp/mime encrypted attachment
+# set pgp_encrypt_only_command="/usr/lib/mutt/pgpewrap gpg-2comp  -v --batch  --output - --encrypt --textmode --armor --always-trust -- -r %r -- %f"
+set pgp_encrypt_only_command="/usr/lib/mutt/pgpewrap /usr/local/bin/gpg2    --batch  --quiet  --no-verbose --output - --encrypt --textmode --armor --always-trust -- -r %a %r -- %f"
+#set pgp_encrypt_only_command="/usr/lib/mutt/pgpewrap gpg --batch --quiet --no-verbose --output - --encrypt --textmode --armor --always-trust --encrypt-to 0xCBA64736 -- -r %r -- %f"
+# create a pgp/mime encrypted and signed attachment
+# set pgp_encrypt_sign_command="/usr/lib/mutt/pgpewrap gpg-2comp  --passphrase-fd 0 -v --batch  --output - --encrypt --sign %?a?-u %a? --armor --always-trust -- -r %r -- %f"
+set pgp_encrypt_sign_command="/usr/lib/mutt/pgpewrap /usr/local/bin/gpg2  --passphrase-fd 0  --batch --quiet  --no-verbose  --textmode --output - --encrypt --sign %?a?-u %a? --armor --always-trust -- -r %a %r -- %f"
+#set pgp_encrypt_sign_command="/usr/lib/mutt/pgpewrap gpg --passphrase-fd 0 --batch --quiet --no-verbose --textmode --output - --encrypt --sign %?a?-u %a? --armor --always-trust --encrypt-to 0xCBA64736 -- -r %r -- %f"
+# import a key into the public key ring
+set pgp_import_command="/usr/local/bin/gpg2  --no-verbose --import -v %f"
+#set pgp_import_command="gpg --no-verbose --import -v %f"
+# export a key from the public key ring
+set pgp_export_command="/usr/local/bin/gpg2   --no-verbose --export --armor %r"
+#set pgp_export_command="gpg --no-verbose --export --armor %r"
+# verify a key
+set pgp_verify_key_command="/usr/local/bin/gpg2   --verbose --batch  --fingerprint  --check-sigs %r"
+#set pgp_verify_key_command="gpg --no-verbose --batch --fingerprint --check-sigs %r"
+# read in the public key ring
+set pgp_list_pubring_command="/usr/local/bin/gpg2   --no-verbose --batch --quiet   --with-colons --list-keys %r" 
+#set pgp_list_pubring_command="gpg --no-verbose --batch --with-colons --list-keys %r" 
+# read in the secret key ring
+set pgp_list_secring_command="/usr/local/bin/gpg2   --no-verbose --batch --quiet   --with-colons --list-secret-keys %r"
+#set pgp_list_secring_command="gpg --no-verbose --batch --with-colons --list-secret-keys %r" 
+
+# fetch keys
+# set pgp_getkeys_command="pkspxycwrap %r"
+# set pgp_getkeys_command="/usr/bin/gpg2 --keyserver search.keyserver.net --recv-key %r"
 
 # To automatically encrypt messages to specific recipients use
 #send-hook . 'reset pgp_autoencrypt'
 #send-hook "!~l ~t onemail@example\\.org" "set crypt_autoencrypt crypt_autosign"
 #send-hook "!~l ~t another@example\\.org" "set crypt_autoencrypt crypt_autosign"
+
+bind compose x  pgp-menu
 
