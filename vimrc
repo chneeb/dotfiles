@@ -14,6 +14,11 @@ set nocompatible
 set incsearch
 set hlsearch
 
+" For Rust racer
+set hidden
+let g:racer_cmd = "/home/chneeb/Source/racer/target/release/racer"
+let $RUST_SRC_PATH="/usr/local/src/rust/src/"
+
 " pathogen bundles
 call pathogen#infect()
 call pathogen#helptags()
@@ -47,6 +52,8 @@ if $TERM == "xterm-256color" || $TERM == "screen-256color" || $COLORTERM == "gno
 endif
 
 filetype plugin indent on
+
+au BufRead,BufNewFile *.rs set filetype=rust
 
 map <leader>t :FuzzyFinderTextMate<CR>
 noremap <leader>o <Esc>:CommandT<CR>
