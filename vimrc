@@ -14,14 +14,13 @@ set nocompatible
 set incsearch
 set hlsearch
 
-" For Rust racer
-set hidden
-let g:racer_cmd = "/home/chneeb/Source/racer/target/release/racer"
-let $RUST_SRC_PATH="/usr/local/src/rust/src/"
-
 " pathogen bundles
 call pathogen#infect()
 call pathogen#helptags()
+
+set hidden
+let g:racer_cmd = "/usr/local/src/racer/target/release/racer"
+let $RUST_SRC_PATH="/usr/local/src/rust/src/"
 
 if has("gui_running")
   syntax on
