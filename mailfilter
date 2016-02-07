@@ -13,7 +13,7 @@ if (/^X-Bogosity: Spam, tests=bogofilter/)
   to $SPAM
 }
 
-if (/^From:.*mailings@gmx.net/)
+if (/^From:.*mailings@system.gmx.net/)
 {
   to $GMX
 }
