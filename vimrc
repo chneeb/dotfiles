@@ -13,6 +13,7 @@ set novisualbell
 set nocompatible
 set incsearch
 set hlsearch
+set paste
 
 " pathogen bundles
 call pathogen#infect()
@@ -35,6 +36,7 @@ if has("gui_running")
   set guioptions+=m
   set list
   set nu
+  set nopaste
   set background=light
   "set background=dark
   let g:solarized_termtrans=1

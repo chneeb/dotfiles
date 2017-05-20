@@ -1,18 +1,35 @@
 # Configuration was inspired by http://stevelosh.com/blog/2012/10/the-homely-mutt/
 [general]
 ui = ttyui
-accounts = Gmail
+accounts = Chneeb
 pythonfile=~/.dotfiles/offlineimap.py
 fsync = False
 
 # Automatic mutt mailbox generation
 [mbnames]
-enabled = yes
+enabled = no
 filename = ~/.mutt/gmail.mailboxes
 header = "mailboxes "
 peritem = "+%(accountname)s/%(foldername)s"
 sep = " "
 footer = "\n"
+
+[Account Chneeb]
+localrepository = Chneeb-Local
+remoterepository = Chneeb-Remote
+status_backend = sqlite
+
+[Repository Chneeb-Local]
+type = Maildir
+localfolders = ~/Mail/Chneeb
+
+[Repository Chneeb-Remote]
+type = IMAP
+ssl = yes
+remotehost = mail.dijo.ch
+remoteusereval=get_user("mail.dijo.ch")
+remotepasseval=get_password("mail.dijo.ch")
+sslcacertfile = /etc/ssl/certs/ca-certificates.crt
 
 [Account Gmail]
 localrepository = Gmail-Local
