@@ -14,6 +14,7 @@ set nocompatible
 set incsearch
 set hlsearch
 set paste
+set autowrite
 
 " pathogen bundles
 call pathogen#infect()
@@ -67,6 +68,8 @@ map <right> <nop>
 map   <silent> <F5> mmgg=G'm
 imap  <silent> <F5> <Esc> mmgg=G'm
 map <F6> :setlocal spell! spelllang=en_us<CR>
+
+"autocmd VimEnter * !ls
 
 "" Things to try:
 " ack.vim
