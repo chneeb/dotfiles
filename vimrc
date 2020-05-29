@@ -14,6 +14,7 @@ set nocompatible
 set incsearch
 set hlsearch
 set paste
+set autowrite
 
 " pathogen bundles
 call pathogen#infect()
@@ -70,6 +71,8 @@ map <F6> :setlocal spell! spelllang=en_us<CR>
 
 " Powerline
 set rtp+=/usr/local/lib/python2.7/dist-packages/powerline/bindings/vim
+
+"autocmd VimEnter * !ls
 
 "" Things to try:
 " ack.vim
