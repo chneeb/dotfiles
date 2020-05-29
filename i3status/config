@@ -15,6 +15,7 @@ order += "cpu_usage"
 #order += "load"
 #order += "ipv6"
 order += "disk /"
+order += "disk /home"
 #order += "run_watch DHCP"
 #order += "run_watch VPN"
 #order += "wireless _first_"
@@ -89,5 +90,9 @@ load {
 }
 
 disk "/" {
-        format = "%avail"
+        format = "/ %avail"
+}
+
+disk "/home" {
+        format = "/home %avail"
 }

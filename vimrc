@@ -68,6 +68,9 @@ map   <silent> <F5> mmgg=G'm
 imap  <silent> <F5> <Esc> mmgg=G'm
 map <F6> :setlocal spell! spelllang=en_us<CR>
 
+" Powerline
+set rtp+=/usr/local/lib/python2.7/dist-packages/powerline/bindings/vim
+
 "" Things to try:
 " ack.vim
 " surround
